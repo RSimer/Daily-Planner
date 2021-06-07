@@ -12,5 +12,16 @@ setInterval(function() {
         );
 }, 500);
 
+// creating a save upon clicking the save button and should keep the text given
+$('.saveBtn').on('click', function(){
+    
+    $('textarea').each(function(){
+        var  id =$(this).attr('id');
+        var value = $(this).val();
+        localStorage.setItem(id,value);
 
+    });
+
+
+});
 
