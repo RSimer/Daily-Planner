@@ -19,13 +19,11 @@ var date = new Date();
 
 // creating a save upon clicking the save button and should keep the text given
 
-var saveDat = JSON.parse(localStorage.getItem('description'));
+// var saveDat = JSON.parse(localStorage.getItem('description'));
 // gotta make that button work baby!!!
-save.each(function(){
 
-});
 
-localStorage.setItem('description', JSON.stringify(saveDat));
+// localStorage.setItem('description', JSON.stringify(saveDat));
 
 
 // hour settings 
@@ -33,37 +31,50 @@ localStorage.setItem('description', JSON.stringify(saveDat));
 // once document is loaded and ready
 $(document).ready(function() {
   var rows = $('.row');
-  var time = moment().hour();
+  var time = moment().hours();
+  $('.time-block').each(function(){
+    var blockHour = parseInt($(this).attr("id").split("-")[1])
+    if(blockHour < time){
+      $(this).addClass('past');
+
+      console.log(this);
+    
+    }else if(blockHour === time){
+      $(this).removeClass('past');
+      $(this).addClass('present');
+    }else{
+      $(this).removeClass('past');
+      $(this).removeClass('present');
+      $(this).addClass('future');
+    }
+  })
+
+
+$('.saveBtn').on('click',function(){
+
+  var textVal = $(this).siblings(".description").val();
+  var time = $(this).parent().attr('id');
+
+  console.log(textVal, time);
+  localStorage.setItem(time,textVal);
+})
+
 console.log(rows);
 console.log(time);
-  // rows is an array of divs, let's work with each element one by one 
-  rows.each(function() {
-    //creates a blank slate 
-    $(rows).removeClass("past");
-    $(rows).removeClass("present");
-    $(rows).removeClass("future");
 
-    // code turn to number
-    var hourGet = $('#hour-');
-    var hourString = Number(hourGet);
 
-    // assign a CSS class according to the current hour (calculated at the beginning)
-    if (hourGet < time) {
-      $(rows).addClass("past");
-    } else if (hourGet === time) {
-      $(rows).addClass("present");
-    } else if (hourGet > time) {
-      $(rows).addClass("future");
-    }
-    console.log(hourGet);
-    console.log(hourString);
-    
-  });
+
+ $('#hour-9 .description').val(localStorage.getItem("hour-9"));
+ $('#hour-10 .description').val(localStorage.getItem("hour-10"));
+ $('#hour-11 .description').val(localStorage.getItem("hour-11"));
+ $('#hour-12 .description').val(localStorage.getItem("hour-12"));
+ $('#hour-13 .description').val(localStorage.getItem("hour-13"));
+ $('#hour-14 .description').val(localStorage.getItem("hour-14"));
+ $('#hour-15 .description').val(localStorage.getItem("hour-15"));
+ $('#hour-16 .description').val(localStorage.getItem("hour-16"));
+ $('#hour-17 .description').val(localStorage.getItem("hour-17"));
 });
 
-// current hours === 
-// future hours for loop highlight green
 
-// creating possible for loop for the hour function
 
 
