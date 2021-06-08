@@ -1,9 +1,12 @@
 
-var dayay = moment().format("MMM:Do:YYYY");
-$("#currentDay").text(dayay);
+// get the live date out of the way
+    var dayay = moment().format("MMM:Do:YYYY");
+    $("#currentDay").text(dayay);
+// gotta make them variables
 var date = new Date();
 var time = date.getHours();
 var save = $('.saveBtn');
+var hourGet = $('hour-').data(time);
 
 // maybe use this as the current feature for the seperate hour function so it knows 
 // when to turn red
@@ -15,7 +18,12 @@ var date = new Date();
 }, 500);
 
 // creating a save upon clicking the save button and should keep the text given
+
 var saveDat = JSON.parse(localStorage.getItem('description'));
+// gotta make that button work baby!!!
+save.each(function(){
+
+});
 
 localStorage.setItem('description', JSON.stringify(saveDat));
 
@@ -36,7 +44,7 @@ console.log(time);
     $(rows).removeClass("future");
 
     // code turn to number
-    var hourGet = $('data-hour');
+    var hourGet = $('#hour-');
     var hourString = Number(hourGet);
 
     // assign a CSS class according to the current hour (calculated at the beginning)
