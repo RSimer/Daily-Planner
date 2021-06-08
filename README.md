@@ -15,6 +15,6 @@ There is also an active timer and the current hour is shown by red, past is grey
 
 who doesnt want an online planner you don't have to pay $5 a month for
 
-! [Screenshot](screenshot/screenshot.png);
+![Screenshot](screenshot/screenshot.png);
 
 https://RSimer.github.io/Daily-Planner/
