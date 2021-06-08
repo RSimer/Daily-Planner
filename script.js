@@ -1,12 +1,16 @@
 
 var dayay = moment().format("MMM:Do:YYYY");
 $("#currentDay").text(dayay);
-var date =new Date();
+var date = new Date();
 var time = date.getHours();
+
+$ele.fadeOut(1000)
+    .delay(1000)
+    .remove(); 
 // maybe use this as the current feature for the seperate hour function so it knows 
 // when to turn red
 setInterval(function() {
-
+var date = new Date();
     $('#currentTime').html(
         date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
         );
@@ -51,7 +55,7 @@ $(document).ready(function() {
     $(row).removeClass("future");
 
     // Read the value of the data-time attribute & turn it into a number
-    var dataAttString = $(row).data('time');
+    var dataAttString = $(row).data(time);
     var dataAttNum = Number(dataAttString);
 
     // assign a CSS class according to the current hour (calculated at the beginning)
@@ -62,5 +66,10 @@ $(document).ready(function() {
     } else if (dataAttNum > time) {
       $(row).addClass("future");
     }
+    console.log(dataAttNum);
+    console.log(dataAttString);
   });
 });
+
+// current hours === 
+// future hours for loop highlight green
